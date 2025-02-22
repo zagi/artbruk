@@ -1,76 +1,15 @@
 ---
-const bottomLinks = [
-  {
-    header: 'Social',
-    links: [
-      {
-        name: 'Github',
-        href: 'https://github.com/',
-        isExternal: true,
-      },
-      {
-        name: 'Twitter',
-        href: 'https://twitter.com/',
-        isExternal: true,
-      },
-      {
-        name: 'Instagram',
-        href: 'https://instagram.com/',
-        isExternal: true,
-      },
-      {
-        name: 'Facebook',
-        href: 'https://facebook.com/',
-        isExternal: true,
-      },
-    ],
-  },
-  {
-    header: 'Company',
-    links: [
-      {
-        name: 'Home',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'About',
-        href: '/about',
-        isExternal: false,
-      },
-      {
-        name: 'Pricing',
-        href: '/pricing',
-        isExternal: false,
-      },
-      {
-        name: 'Contact',
-        href: '/contact',
-        isExternal: false,
-      },
-    ],
-  },
-  {
-    header: 'Legal',
-    links: [
-      {
-        name: 'Privacy',
-        href: '/privacy',
-        isExternal: false,
-      },
-      {
-        name: '404',
-        href: '/404',
-        isExternal: false,
-      },
-      {
-        name: 'Styleguide',
-        href: '/styleguide',
-        isExternal: false,
-      },
-    ],
-  },
-];
+interface Props {
+  siteTitle?: string;
+  siteDescription?: string;
+  bottomLinks?:  BottomLinks[]
+}
+
+const {
+  siteTitle = 'Stone',
+  siteDescription = 'Stone is a premium Astro theme specially designed for Business, Marketing, SaaS and Startup websites.',
+  bottomLinks = [],
+} = Astro.props
 
 const currentYear = new Date().getFullYear();
 ---
@@ -91,10 +30,9 @@ const currentYear = new Date().getFullYear();
           alt="Stone"
         />
         <p class="text-primary-950/70 dark:text-primary-200/70 text-base">
-          Stone is a premium Astro theme specially designed for Business, Marketing, SaaS and
-          Startup websites.
+          {siteDescription}
         </p>
-        <p class="text-primary-950/70 dark:text-primary-200/70 text-sm">© {currentYear} Stone</p>
+        <p class="text-primary-950/70 dark:text-primary-200/70 text-sm">© {currentYear} {siteTitle}</p>
       </div>
 
       <!-- Bottom links -->
