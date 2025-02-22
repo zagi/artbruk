@@ -1,7 +1,8 @@
 ---
 import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
-import { ViewTransitions } from 'astro:transitions';
+
+import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/layout/Footer.astro';
 import Header from '../components/layout/Header.astro';
 
@@ -25,7 +26,7 @@ const { description, title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body
     class="bg-primary-50 text-primary-950 dark:bg-primary-950 dark:text-primary-200 antialiased transition"
@@ -40,35 +41,5 @@ const { description, title } = Astro.props;
         display: none !important;
       }
     </style>
-    <script>
-      import Alpine from 'alpinejs';
-      import collapse from '@alpinejs/collapse';
-
-      Alpine.plugin(collapse);
-
-      Alpine.store('theme', {
-        init() {
-          this.isDark = (() => {
-            if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-              return localStorage.getItem('theme') === 'dark';
-            }
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              return true;
-            }
-            return false;
-          })();
-        },
-
-        isDark: false,
-
-        toggle() {
-          this.isDark = !this.isDark;
-          localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
-        },
-      });
-
-      window.Alpine = Alpine;
-      Alpine.start();
-    </script>
   </body>
 </html>
