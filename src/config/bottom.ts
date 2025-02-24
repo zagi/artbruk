@@ -14,11 +14,11 @@ export const bottomLinks: BottomLinks[] = [
         href: '/about',
         isExternal: false,
       },
-      {
-        name: 'Remonty premium',
-        href: '/premium-renovations',
-        isExternal: false,
-      },
+      //   {
+      //     name: 'Remonty premium',
+      //     href: '/premium-renovations',
+      //     isExternal: false,
+      //   },
       {
         name: 'Kontakt',
         href: '/contact',
