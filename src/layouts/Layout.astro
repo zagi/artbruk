@@ -3,6 +3,10 @@ import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
 
 import { ClientRouter } from 'astro:transitions';
+
+import { navbarLinks } from '../config/navbar';
+import { bottomLinks } from '../config/bottom';
+
 import Footer from '../components/layout/Footer.astro';
 import Header from '../components/layout/Header.astro';
 
@@ -14,7 +18,7 @@ interface Props {
 const { description, title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" x-cloak x-data :class="{ 'dark': $store.theme.isDark }">
   <head>
     <meta charset="utf-8" />
@@ -29,13 +33,13 @@ const { description, title } = Astro.props;
     <ClientRouter />
   </head>
   <body
-    class="bg-primary-50 text-primary-950 dark:bg-primary-950 dark:text-primary-200 antialiased transition"
+    class="bg-primary-50 text-primary-950 antialiased transition dark:bg-primary-950 dark:text-primary-200"
   >
-    <Header />
+    <Header links={navbarLinks} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer bottomLinks={bottomLinks} />
     <style is:global>
       [x-cloak] {
         display: none !important;

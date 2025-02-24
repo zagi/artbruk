@@ -6,16 +6,20 @@ import Hero from '../components/home/Hero.astro';
 import Services from '../components/home/Services.astro';
 import Testimonials from '../components/home/Testimonials.astro';
 import Layout from '../layouts/Layout.astro';
+
+import { services } from '../config/services';
+import { faqs } from '../config/faqs';
+import { testimonials } from '../config/testimonials';
 ---
 
 <Layout
-  description="Stone is a premium Astro theme specially designed for Business, Marketing, SaaS and Startup websites."
-  title="Stone · Premium Astro template"
+  description="Art-Bruk to firma specjalizująca się w ekskluzywnych remontach mieszkań i domów na terenie Warszawy i okolic. Oferujemy kompleksowe usługi od doradztwa i projektowania po prace budowlane i wykończeniowe."
+  title="Art-Bruk · Ekskluzywne remonty i aranżacje wnętrz"
 >
   <Hero />
-  <Services />
-  <Expertise />
+  <Services services={services} />
+  <Expertise faqs={faqs} />
   <About />
-  <Testimonials />
+  <Testimonials testimonials={testimonials} />
   <Cta />
 </Layout>

@@ -1,36 +1,16 @@
 ---
+import type { InternalLink } from '../../types';
 interface Props {
+  links: InternalLink[];
   siteTitle?: string;
   siteDescription?: string;
 }
 
 const {
-  siteTitle = 'Stone',
-  siteDescription = ' is a premium Astro theme specially designed for Business, Marketing, SaaS and Startup websites.',
+  links,
+  siteTitle = 'Art-Bruk',
+  siteDescription = ' to firma specjalizująca się w ekskluzywnych remontach mieszkań i domów na terenie Warszawy i okolic.',
 } = Astro.props;
-
-const links = [
-  {
-    ref: '01',
-    name: 'Home',
-    href: '/',
-  },
-  {
-    ref: '02',
-    name: 'About',
-    href: '/about',
-  },
-  {
-    ref: '03',
-    name: 'Pricing',
-    href: '/pricing',
-  },
-  {
-    ref: '04',
-    name: 'Contact',
-    href: '/contact',
-  },
-];
 ---
 
 <header
@@ -45,16 +25,19 @@ const links = [
     <div class="flex">
       <a
         href="/"
-        class="rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200"
+        class="flex items-center justify-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200"
       >
         <span class="sr-only">{siteTitle}</span>
         <img
-          class="h-8 w-auto"
+          class="mr-3 h-8 w-auto stroke-2 tracking-tight dark:invert"
           width="65"
           height="40"
-          :src="$store.theme.isDark ? '/assets/logo-inverted.svg' : '/assets/logo.svg'"
-          alt="Stone"
+          src="/assets/logo-art-bruk.svg"
+          alt="Art-Bruk"
         />
+        <h1 class="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+          <span class="font-bold">Art-Bruk</span>
+        </h1>
       </a>
     </div>
 
